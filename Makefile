@@ -5,6 +5,9 @@ run:
 	mkdir -p ${PWD}/models
 	docker run --rm --name ollama -p 11434:11434 -v ${PWD}/models/.ollama:/root/.ollama ollama
 
+mistral:
+	docker exec -ti ollama ollama pull mistral
+
 translate:
 	docker cp translate.py ollama:/usr/src/app
 	docker cp to_do.txt  ollama:/usr/src/app/to_do
